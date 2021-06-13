@@ -1,0 +1,207 @@
+loginpage:
+  - title: 10位错误用户
+    description: 异常登入的测试用例,用户名输入10位错误的用户,输入正确的密码和验证码
+    class:
+    - step: 打开登入页面
+      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+
+    - step: 输入账户：1380013800
+      username: 1380013800
+
+    - step: 输入密码：123456
+      password: 123456
+
+    - step: 输入验证码：1
+      verify: 1
+
+    - step: 点击登入
+      login: //*[@id="loginform"]/div/div[6]/a
+
+    - step: 断言
+      fangfa: xpath
+      dingwei: //*[@class="layui-layer-content layui-layer-padding"]
+      dy: 账号格式不匹配!
+
+  - title: 11位错误用户
+    description: 异常登入的测试用例,用户名输入11位错误的用户,输入正确的密码和验证码
+    class:
+    - step: 打开登入页面
+      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+
+    - step: 输入账户：13800138001
+      username: 13800138001
+
+    - step: 输入密码：123456
+      password: 123456
+
+    - step: 输入验证码：1
+      verify: 1
+
+    - step: 点击登入
+      login: //*[@id="loginform"]/div/div[6]/a
+
+    - step: 断言
+      fangfa: xpath
+      dingwei: //*[@class="layui-layer-content layui-layer-padding"]
+      dy: 账号不存在!
+
+  - title: 错误的密码
+    description: 异常登入的测试用例,用户名输入正确的用户,输入错误的密码
+    class:
+    - step: 打开登入页面
+      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+
+    - step: 输入账户：13800138006
+      username: 13800138006
+
+    - step: 输入密码：12345
+      password: 12345
+
+    - step: 输入验证码：1
+      verify: 1
+
+    - step: 点击登入
+      login: //*[@id="loginform"]/div/div[6]/a
+
+    - step: 断言
+      fangfa: xpath
+      dingwei: //*[@class="layui-layer-content layui-layer-padding"]
+      dy: 密码错误!
+
+  - title: 不输入用户
+    description: 异常登入的测试用例,用户名不输入用户,输入正确的密码
+    class:
+    - step: 打开登入页面
+      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+
+    - step: 输入账户：不输入用户名
+      username: ''
+
+    - step: 输入密码：123456
+      password: 123456
+
+    - step: 输入验证码：1
+      verify: 1
+
+    - step: 点击登入
+      login: //*[@id="loginform"]/div/div[6]/a
+
+    - step: 断言
+      fangfa: xpath
+      dingwei: //*[@class="layui-layer-content layui-layer-padding"]
+      dy: 用户名不能为空!
+
+  - title: 不输入密码
+    description: 异常登入的测试用例,用户名输入正确的用户,不输入密码
+    class:
+    - step: 打开登入页面
+      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+
+    - step: 输入账户：13800138006
+      username: 13800138006
+
+    - step: 输入密码：不输入密码
+      password: ''
+
+    - step: 输入验证码：1
+      verify: 1
+
+    - step: 点击登入
+      login: //*[@id="loginform"]/div/div[6]/a
+
+    - step: 断言
+      fangfa: xpath
+      dingwei: //*[@class="layui-layer-content layui-layer-padding"]
+      dy: 密码不能为空!
+
+  - title: 不输入验证码
+    description: 异常登入的测试用例,用户名输入正确的用户,输入正确的密码,不输入验证码
+    class:
+    - step: 打开登入页面
+      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+
+    - step: 输入账户：13800138006
+      username: 13800138006
+
+    - step: 输入密码：123456
+      password: 123456
+
+    - step: 输入验证码：不输入验证码
+      verify: ''
+
+    - step: 点击登入
+      login: //*[@id="loginform"]/div/div[6]/a
+
+    - step: 断言
+      fangfa: xpath
+      dingwei: //*[@class="layui-layer-content layui-layer-padding"]
+      dy: 验证码不
+
+  - title: 正常登入
+    description: 正常登入的测试用例
+    class:
+    - step: 打开登入页面
+      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+
+    - step: 输入账户：13800138006
+      username: 13800138006
+
+    - step: 输入密码：123456
+      password: 123456
+
+    - step: 输入验证码：1
+      verify: 1
+
+    - step: 点击登入
+      login: //*[@id="loginform"]/div/div[6]/a
+
+    - step: 断言
+      fangfa: text
+      dingwei: 安全退出
+      dy: 安全退出
+#loginpage2:
+#  - title: 正常登入
+#    description: 正常登入的测试用例
+#    class:
+#    - step: 打开登入页面
+#      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+#
+#    - step: 输入账户
+#      username: 13800138006
+#
+#    - step: 输入密码
+#      password: 123456
+#
+#    - step: 输入验证码
+#      verify: 1
+#
+#    - step: 点击登入
+#      login: //*[@id="loginform"]/div/div[6]/a
+#
+#    - step: 断言
+#      fangfa: text
+#      dingwei: 安全退出
+#      dy: 安全退出
+#
+#  - title: 异常登入
+#    description: 异常登入的测试用例
+#    class:
+#    - step: 打开登入页面
+#      url: http://www.testingedu.com.cn:8000/Home/user/login.html
+#
+#    - step: 输入账户
+#      username: 1380013800
+#
+#    - step: 输入密码
+#      password: 123456
+#
+#    - step: 输入验证码
+#      verify: 1
+#
+#    - step: 点击登入
+#      login: //*[@id="loginform"]/div/div[6]/a
+#
+#    - step: 断言
+#      fangfa: xpath
+#      dingwei: //*[@class="layui-layer-content layui-layer-padding"]
+#      dy: 账号格式不匹配!
